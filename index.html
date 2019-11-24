@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Snake and Ladder</title>
+  </head>
+  <body>
+     <script>
+
+          
+         document.write("Game starts..." + "<br>");
+
+
+      var player = [0,0];
+
+
+      var board = 0;
+
+      while(board < 25)
+      {
+
+        for(var i=0; i<2; i++)
+        {
+
+          var die = (Math.floor(Math.random() * 6) + 1);
+
+
+          document.write("&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp");
+          document.write("Player " + (i+1) + "  rolls... Die: " + die + ", ");
+
+
+          player[i] = player[i] + die;
+
+
+            if(player[i]==15)
+              {
+                player[i] = 5;
+                  document.write("You stumble on a snake, go back to position 5" + "<br>");
+              }
+
+
+            else if(player[i]==23)
+              {
+                player[i] = 13;
+                  document.write("You stumble on a snake, go back to position 13" + "<br>");
+              }
+
+
+            else if(player[i]==2)
+              {
+                player[i] = 12;
+                  document.write("You stumble on a ladder, advance to position 12" + "<br>");
+              }
+
+
+            else if(player[i]==10)
+              {
+                player[i] = 20;
+                  document.write("You stumble on a ladder, advance to position 20" + "<br>");
+              }
+
+
+            else {
+              document.write("Move to position " + player[i] + "<br>");
+            }
+
+
+          if(player[i] > 24)
+              {
+                  document.write("&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp");
+                  document.write("Player " + (i+1) + " passes the finishing square. Player " + (i+1) + " wins!!!" + "<br>");
+                  break;
+              }
+        }
+
+
+        document.write("<br>");
+
+
+        if (player[0] > player[1])
+        {
+          board = player[0];
+        }
+        else {
+          board = player[1]
+        }
+
+      }
+
+        document.write("Game ends..." + "<br>");
+
+    </script>
+  </body>
+</html>
